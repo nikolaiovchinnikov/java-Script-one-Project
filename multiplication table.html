@@ -23,21 +23,21 @@
             8: 0,
             9: 0,
         }
-        let rangelast = 1
-        let rangefirst = 10
+        let rangelast = 1;
+        let rangefirst = 10;
         const level = prompt("Выберите уровень сложности (низкий,средний,высокий,сложный)");
         switch (level) {
             case "низкий":
-                rangelast = 1
-                rangefirst = 3
+                rangelast = 1;
+                rangefirst = 3;
                 break;
             case "средний":
-                rangelast = 3
-                rangefirst = 6
+                rangelast = 3;
+                rangefirst = 6;
                 break;
             case "высокий":
-                rangelast = 3
-                rangefirst = 10
+                rangelast = 3;
+                rangefirst = 10;
                 break;
             case "сложный":
                 break;
@@ -53,50 +53,50 @@
             const userChoce = prompt(lastInt + " * " + firstInt);
             const getInt = parseInt(userChoce);
             if(lastInt * firstInt === getInt){
-                alert("You are correct!")
-                statistic.trueAnswer++
+                alert("You are correct!");
+                statistic.trueAnswer++;
             }
             else if (lastInt * firstInt !== getInt && getInt == userChoce ){
-                alert("You are wrong")
-                statistic.falseAnswer++
+                alert("You are wrong");
+                statistic.falseAnswer++;
                 switch (lastInt) {
                     case 1:
-                        statisticError[1]++
+                        statisticError[1]++;
                         break;
                     case 2:
-                        statisticError[2]++
+                        statisticError[2]++;
                         break;
                     case 3:
-                        statisticError[3]++
+                        statisticError[3]++;
                         break;
                     case 4:
-                        statisticError[4]++
+                        statisticError[4]++;
                         break;
                     case 5:
-                        statisticError[5]++
+                        statisticError[5]++;
                         break;
                     case 6:
-                        statisticError[6]++
+                        statisticError[6]++;
                         break;
                     case 7:
-                        statisticError[7]++
+                        statisticError[7]++;
                         break;
                     case 8:
-                        statisticError[8]++
+                        statisticError[8]++;
                         break;
                     case 9:
-                        statisticError[9]++
+                        statisticError[9]++;
                         break;
                 }
             }
             else if (null === userChoce){
-                let maxList = []
+                let maxList = [];
                 lenDict = Object.keys(statisticError).length;
                 for (let i = 1; i < lenDict; i++) {
                     let element = statisticError[i];
-                    maxList.push(element + " в " + i + " строке")
+                    maxList.push(element + " в " + i + " строке");
                 }
-                maxList.sort()
+                maxList.sort();
                 alert("Всего не правильных ответов " + statistic.falseAnswer 
                 + "   " + 
                 "Всего Правильных ответов " + statistic.trueAnswer+ "\n" +
@@ -113,10 +113,10 @@
                 "2 место по ошибкам "  + maxList[maxList.length - 2]+ "\n"+
                 "3 место по ошибкам "  + maxList[maxList.length - 3]+ "\n"
                 );
-                break
+                break;
             }
             else {
-                alert("Введите коректную команду")
+                alert("Введите коректную команду");
             }
         }
     </script>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const statistic = {
+            trueAnswer : 0,
+            falseAnswer : 0,
+        }
+        const statisticError = {
+            1: 0,
+            2: 0,
+            3: 0,
+            4: 0,
+            5: 0,
+            6: 0,
+            7: 0,
+            8: 0,
+            9: 0,
+        }
+        let rangelast = 1
+        let rangefirst = 10
+        const level = prompt("Выберите уровень сложности (низкий,средний,высокий,сложный)");
+        switch (level) {
+            case "низкий":
+                rangelast = 1
+                rangefirst = 3
+                break;
+            case "средний":
+                rangelast = 3
+                rangefirst = 6
+                break;
+            case "высокий":
+                rangelast = 3
+                rangefirst = 10
+                break;
+            case "сложный":
+                break;
+            default:
+                alert("Выбран уровень по умолчанию");
+        }
+        while (true){
+            let lastInt = Math.floor(Math.random() * (rangelast - rangefirst) + rangefirst);
+            if(level === "высокий" && lastInt === 5){
+                lastInt = Math.floor(Math.random() * (6 - 10) + 10);
+            }
+            const firstInt = Math.floor(Math.random() * 9 + 1);
+            const userChoce = prompt(lastInt + " * " + firstInt);
+            const getInt = parseInt(userChoce);
+            if(lastInt * firstInt === getInt){
+                alert("You are correct!")
+                statistic.trueAnswer++
+            }
+            else if (lastInt * firstInt !== getInt && getInt == userChoce ){
+                alert("You are wrong")
+                statistic.falseAnswer++
+                switch (lastInt) {
+                    case 1:
+                        statisticError[1]++
+                        break;
+                    case 2:
+                        statisticError[2]++
+                        break;
+                    case 3:
+                        statisticError[3]++
+                        break;
+                    case 4:
+                        statisticError[4]++
+                        break;
+                    case 5:
+                        statisticError[5]++
+                        break;
+                    case 6:
+                        statisticError[6]++
+                        break;
+                    case 7:
+                        statisticError[7]++
+                        break;
+                    case 8:
+                        statisticError[8]++
+                        break;
+                    case 9:
+                        statisticError[9]++
+                        break;
+                }
+            }
+            else if (null === userChoce){
+                let maxList = []
+                lenDict = Object.keys(statisticError).length;
+                for (let i = 1; i < lenDict; i++) {
+                    let element = statisticError[i];
+                    maxList.push(element + " в " + i + " строке")
+                }
+                maxList.sort()
+                alert("Всего не правильных ответов " + statistic.falseAnswer 
+                + "   " + 
+                "Всего Правильных ответов " + statistic.trueAnswer+ "\n" +
+                "Количество ошибок в умнажаемом числе 1    " + statisticError[1] + "\n"+
+                "Количество ошибок в умнажаемом числе 2    " + statisticError[2] + "\n"+
+                "Количество ошибок в умнажаемом числе 3    " + statisticError[3] + "\n"+
+                "Количество ошибок в умнажаемом числе 4    " + statisticError[4] + "\n"+
+                "Количество ошибок в умнажаемом числе 5    " + statisticError[5] + "\n"+
+                "Количество ошибок в умнажаемом числе 6    " + statisticError[6] + "\n"+
+                "Количество ошибок в умнажаемом числе 7    " + statisticError[7] + "\n"+
+                "Количество ошибок в умнажаемом числе 8    " + statisticError[8] + "\n"+
+                "Количество ошибок в умнажаемом числе 9    " + statisticError[9] + "\n"+
+                "1 место по ошибкам "  + maxList[maxList.length - 1]+ "\n"+
+                "2 место по ошибкам "  + maxList[maxList.length - 2]+ "\n"+
+                "3 место по ошибкам "  + maxList[maxList.length - 3]+ "\n"
+                );
+                break
+            }
+            else {
+                alert("Введите коректную команду")
+            }
+        }
+    </script>
+</body>
+</html>
